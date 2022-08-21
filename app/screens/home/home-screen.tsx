@@ -4,6 +4,7 @@ import { TextStyle, ViewStyle, FlatList, View } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { NavigatorParamList } from "../../navigators"
 import { Checkbox, HeaderHome, Screen, Text } from "../../components"
+import { FloatingAction } from "react-native-floating-action"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "../../models"
 import { color, spacing } from "../../theme"
@@ -11,7 +12,7 @@ import { useStores } from "../../models"
 import { toJS } from "mobx"
 
 const ROOT: ViewStyle = {
-  backgroundColor: color.palette.offWhite,
+  backgroundColor: "#F1F1F1",
   flex: 1,
 }
 
@@ -44,6 +45,7 @@ const TITLE_SECTION: TextStyle = {
   color: "gray",
   marginLeft: spacing[4],
   marginVertical: spacing[3],
+  marginTop: spacing[5],
 }
 const CHECKBOX: ViewStyle = {
   width: 24,
@@ -58,21 +60,10 @@ const FILL_CHECKBOX: ViewStyle = {
 }
 
 export const HomeScreen: FC<StackScreenProps<NavigatorParamList, "home">> = observer(
-  function HomeScreen() {
-    // Pull in one of our MST stores
+  function HomeScreen({ navigation }) {
+    const { navigate } = navigation
     const { taskStore } = useStores()
-    console.log("task store", toJS(taskStore.allTask))
     const { allTask } = taskStore
-
-    // Pull in navigation via hook
-    // const navigation = useNavigation()
-    useEffect(() => {
-      // taskStore.saveTask("hello")
-    }, [])
-
-    useEffect(() => {
-      console.log("all task")
-    }, [allTask])
 
     const username = "Lam"
 
@@ -116,6 +107,13 @@ export const HomeScreen: FC<StackScreenProps<NavigatorParamList, "home">> = obse
         <HeaderHome />
         <Text text={`What's up, ${username}!`} style={TEXT_HEADER} />
         {renderTaskSection()}
+        <FloatingAction
+          color={color.primary}
+          showBackground={false}
+          onPressMain={() => {
+            navigate("createTask")
+          }}
+        />
       </Screen>
     )
   },

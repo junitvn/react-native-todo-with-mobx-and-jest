@@ -5,6 +5,8 @@ export const icons = {
   menu: require("./menu.png"),
   search: require("./search.png"),
   noti: require("./noti.png"),
+  save: require("./save.png"),
+  left: require("./left.png"),
 }
 
 export type IconTypes = keyof typeof icons

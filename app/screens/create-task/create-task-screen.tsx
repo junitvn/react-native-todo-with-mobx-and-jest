@@ -1,36 +1,67 @@
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import { observer } from "mobx-react-lite"
-import { ViewStyle } from "react-native"
+import { TextInput, TextStyle, View, ViewStyle } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { NavigatorParamList } from "../../navigators"
-import { Screen, Text } from "../../components"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
-import { color } from "../../theme"
+import { Header, Screen, Text } from "../../components"
+import { color, spacing } from "../../theme"
+import { useStores } from "../../models"
 
 const ROOT: ViewStyle = {
-  backgroundColor: color.palette.black,
+  backgroundColor: color.palette.white,
   flex: 1,
 }
+const TITLE_HEADER: TextStyle = {
+  fontSize: 20,
+  color: "black",
+}
 
-// STOP! READ ME FIRST!
-// To fix the TS error below, you'll need to add the following things in your navigation config:
-// - Add `createTask: undefined` to NavigatorParamList
-// - Import your screen, and add it to the stack:
-//     `<Stack.Screen name="createTask" component={CreateTaskScreen} />`
-// Hint: Look for the 🔥!
+const TITLE: TextStyle = {
+  fontSize: 18,
+  color: "black",
+}
 
-// REMOVE ME! ⬇️ This TS ignore will not be necessary after you've added the correct navigator param type
-// @ts-ignore
-export const CreateTaskScreen: FC<StackScreenProps<NavigatorParamList, "createTask">> = observer(function CreateTaskScreen() {
-  // Pull in one of our MST stores
-  // const { someStore, anotherStore } = useStores()
+const TEXT_INPUT: TextStyle = {
+  fontSize: 18,
+  color: "black",
+  height: 52,
+  marginTop: spacing[3],
+  borderBottomColor: "gray",
+  borderBottomWidth: 1,
+}
+const INPUT_ROW: ViewStyle = {
+  padding: spacing[4],
+}
 
-  // Pull in navigation via hook
-  // const navigation = useNavigation()
-  return (
-    <Screen style={ROOT} preset="scroll">
-      <Text preset="header" text="createTask" />
-    </Screen>
-  )
-})
+export const CreateTaskScreen: FC<StackScreenProps<NavigatorParamList, "createTask">> = observer(
+  function CreateTaskScreen({ navigation }) {
+    const [title, setTitle] = useState("")
+    const { goBack } = navigation
+    const { taskStore } = useStores()
+    const save = () => {
+      taskStore.saveTask(title)
+      goBack()
+    }
+
+    return (
+      <Screen style={ROOT} preset="fixed">
+        <Header
+          leftIcon="left"
+          onLeftPress={goBack}
+          rightIcon="save"
+          onRightPress={save}
+          headerText="CREATE TASK"
+          titleStyle={TITLE_HEADER}
+        />
+        <View style={INPUT_ROW}>
+          <Text style={TITLE}>Title</Text>
+          <TextInput
+            style={TEXT_INPUT}
+            placeholder="Enter title..."
+            onChangeText={(text) => setTitle(text)}
+          />
+        </View>
+      </Screen>
+    )
+  },
+)
