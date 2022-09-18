@@ -11,14 +11,13 @@ const SEARCH_ICON_SIZE = 23
 
 const CONTAINER: ViewStyle = {
   justifyContent: "space-between",
-  flexDirection: 'row'
+  flexDirection: "row",
 }
-
 
 const MENU_ICON_CONTAINER: ImageStyle = {
   width: MENU_ICON_SIZE,
   height: MENU_ICON_SIZE,
-  marginLeft: spacing[2]
+  marginLeft: spacing[2],
 }
 
 const NOTI_ICON_CONTAINER: ImageStyle = {
@@ -32,8 +31,8 @@ const SEARCH_ICON_CONTAINER: ImageStyle = {
 }
 
 const HEADER_RIGHT: ViewStyle = {
-  flexDirection: 'row',
-  marginRight: spacing[3]
+  flexDirection: "row",
+  marginRight: spacing[3],
 }
 
 export interface HeaderHomeProps {
