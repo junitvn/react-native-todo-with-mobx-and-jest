@@ -3,13 +3,14 @@ import { observer } from "mobx-react-lite"
 import { TextStyle, ViewStyle, FlatList, View } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { NavigatorParamList } from "../../navigators"
-import { Checkbox, HeaderHome, Screen, Text } from "../../components"
+import { Category, Checkbox, HeaderHome, Screen, Text } from "../../components"
 import { FloatingAction } from "react-native-floating-action"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "../../models"
 import { color, spacing } from "../../theme"
 import { useStores } from "../../models"
 import { toJS } from "mobx"
+import { Category as CategoryModel } from "../../models"
 
 const ROOT: ViewStyle = {
   backgroundColor: "#F1F1F1",
@@ -38,10 +39,9 @@ const LIST_TEXT: TextStyle = {
 }
 const FLAT_LIST: ViewStyle = {
   paddingHorizontal: spacing[4],
-  flex: 1,
 }
 const TITLE_SECTION: TextStyle = {
-  fontSize: 20,
+  fontSize: 19,
   color: "gray",
   marginLeft: spacing[4],
   marginVertical: spacing[3],
@@ -58,18 +58,56 @@ const FILL_CHECKBOX: ViewStyle = {
   borderRadius: 9,
   backgroundColor: color.primary,
 }
+const CATEGORY_SECTION: ViewStyle = {
+  height: 180,
+  width: "100%",
+}
 
 export const HomeScreen: FC<StackScreenProps<NavigatorParamList, "home">> = observer(
   function HomeScreen({ navigation }) {
     const { navigate } = navigation
     const { taskStore } = useStores()
     const { allTask } = taskStore
+    console.log("allTask", toJS(allTask))
 
     const username = "Lam"
 
     const onPressCompleteTask = (id: number) => {
       taskStore.finishTask(id)
       // taskStore.deleteTask(id)
+    }
+
+    const categories: CategoryModel[] = [
+      {
+        id: 1,
+        title: "Work",
+        tasks: [],
+        completedTasks: [],
+        color: "orange",
+      },
+      {
+        id: 2,
+        title: "Personal",
+        tasks: [],
+        completedTasks: [],
+        color: "blue",
+      },
+    ]
+
+    const renderCategorySection = () => {
+      return (
+        <View style={CATEGORY_SECTION}>
+          <Text style={TITLE_SECTION}>CATEGORIES</Text>
+          <FlatList
+            contentContainerStyle={FLAT_LIST}
+            showsHorizontalScrollIndicator={false}
+            data={categories}
+            horizontal
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item }) => <Category category={item} />}
+          />
+        </View>
+      )
     }
 
     const renderTaskSection = () => {
@@ -106,6 +144,7 @@ export const HomeScreen: FC<StackScreenProps<NavigatorParamList, "home">> = obse
       <Screen style={ROOT} preset="fixed">
         <HeaderHome />
         <Text text={`What's up, ${username}!`} style={TEXT_HEADER} />
+        {renderCategorySection()}
         {renderTaskSection()}
         <FloatingAction
           color={color.primary}

@@ -10,6 +10,7 @@ export const TaskModel = types
     title: types.string,
     createdAt: types.number,
     completed: types.boolean,
+    categoryId: types.number,
   })
   .views((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars
   .actions((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars

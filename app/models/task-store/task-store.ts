@@ -16,6 +16,7 @@ export const TaskStoreModel = types
         title,
         createdAt: Date.now(),
         completed: false,
+        categoryId: 1,
       }
       self.allTask.push(newTask)
     },
@@ -24,7 +25,7 @@ export const TaskStoreModel = types
         const currentStatus = item.completed
         return {
           ...item,
-          completed: item.id === id ? !currentStatus : currentStatus,
+          completed: item.id === id ? true : currentStatus,
         }
       })
       self.allTask.replace(filteredFinishedTasks)
