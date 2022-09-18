@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessibilityState={
+    Object {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "flex-start",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingVertical": 4,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#EB9918",
+          "borderRadius": 1,
+          "borderWidth": 1,
+          "height": 16,
+          "justifyContent": "center",
+          "marginTop": 2,
+          "width": 16,
+        },
+        undefined,
+      ]
+    }
+  />
+  <Text
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Helvetica",
+          "fontSize": 15,
+        },
+        Array [
+          Object {
+            "paddingLeft": 16,
+          },
+          undefined,
+        ],
+      ]
+    }
+  />
+</View>
+`;

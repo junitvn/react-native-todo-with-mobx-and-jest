@@ -3,10 +3,9 @@ import { observer } from "mobx-react-lite"
 import { ImageStyle, TextInput, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { NavigatorParamList } from "../../navigators"
-import { Checkbox, Header, Icon, Screen, Text } from "../../components"
+import { Icon, Screen, Text } from "../../components"
 import { color, spacing } from "../../theme"
 import { useStores } from "../../models"
-import { textPresets } from "../../components/button/button.presets"
 import { isEmpty } from "validate.js"
 
 const ROOT: ViewStyle = {

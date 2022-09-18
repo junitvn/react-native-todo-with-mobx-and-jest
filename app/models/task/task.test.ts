@@ -1,3 +1,4 @@
+import { TaskStoreModel } from "../task-store/task-store"
 import { TaskModel } from "./task"
 
 test("can be created", () => {
@@ -10,4 +11,12 @@ test("can be created", () => {
   })
 
   expect(instance).toBeTruthy()
+})
+
+describe("TodoStore", () => {
+  it("creates new todos", () => {
+    const taskStore = TaskStoreModel.create()
+    taskStore.saveTask("test1")
+    expect(taskStore.allTask[0].title).toBe("test1")
+  })
 })

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 20,
+      "height": 120,
+      "justifyContent": "space-evenly",
+      "marginRight": 16,
+      "padding": 8,
+      "width": 200,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Helvetica",
+          "fontSize": 15,
+        },
+        Object {
+          "color": "gray",
+          "fontFamily": "Helvetica",
+          "fontSize": 15,
+        },
+      ]
+    }
+  >
+    40 tasks
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Helvetica",
+          "fontSize": 15,
+        },
+        Object {
+          "color": "black",
+          "fontFamily": "Helvetica",
+          "fontSize": 28,
+          "fontWeight": "500",
+        },
+      ]
+    }
+  >
+    Test
+  </Text>
+  <View
+    style={
+      Object {
+        "backgroundColor": "lightgray",
+        "borderRadius": 3,
+        "height": 3,
+        "justifyContent": "flex-start",
+        "marginTop": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "height": 3,
+          },
+          Object {
+            "backgroundColor": "gray",
+            "width": "50%",
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
