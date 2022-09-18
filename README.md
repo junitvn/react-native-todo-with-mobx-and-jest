@@ -5,14 +5,14 @@
 A simple Todo App with pretty design, testing with Jest
 
 ## Check list
-[x] Homescreen
-[x] Task, category
-[x] Create task
-[x] Some component with snapshots testing
-[x] Write unit test for mobx store
-[] Animation
-[] Drawler
-[] Create new category
+- [x] Homescreen
+- [x] Task, category
+- [x] Create task
+- [x] Some component with snapshots testing
+- [x] Write unit test for mobx store
+- [ ] Animation
+- [ ] Drawler
+- [ ] Create new category
 
 
 ## Ref
