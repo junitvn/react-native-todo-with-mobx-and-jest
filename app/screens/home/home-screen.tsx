@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react"
+import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
 import { TextStyle, ViewStyle, FlatList, View } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
@@ -8,9 +8,8 @@ import { FloatingAction } from "react-native-floating-action"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "../../models"
 import { color, spacing } from "../../theme"
-import { useStores } from "../../models"
 import { toJS } from "mobx"
-import { Category as CategoryModel } from "../../models"
+import { Category as CategoryModel, useStores } from "../../models"
 
 const ROOT: ViewStyle = {
   backgroundColor: "#F1F1F1",
@@ -90,7 +89,7 @@ export const HomeScreen: FC<StackScreenProps<NavigatorParamList, "home">> = obse
         title: "Personal",
         tasks: [],
         completedTasks: [],
-        color: "blue",
+        color: "purple",
       },
     ]
 

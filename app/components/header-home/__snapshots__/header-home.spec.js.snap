@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <View>
+    <RCTImageView
+      internal_analyticTag={null}
+      resizeMode="contain"
+      source={
+        Array [
+          Object {
+            "height": undefined,
+            "uri": undefined,
+            "width": undefined,
+          },
+        ]
+      }
+      style={
+        Object {
+          "height": 40,
+          "marginLeft": 8,
+          "overflow": "hidden",
+          "resizeMode": "contain",
+          "width": 40,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginRight": 12,
+      }
+    }
+  >
+    <View>
+      <RCTImageView
+        internal_analyticTag={null}
+        resizeMode="contain"
+        source={
+          Array [
+            Object {
+              "height": undefined,
+              "uri": undefined,
+              "width": undefined,
+            },
+          ]
+        }
+        style={
+          Object {
+            "height": 23,
+            "overflow": "hidden",
+            "resizeMode": "contain",
+            "width": 23,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": undefined,
+          "justifyContent": "center",
+          "width": 16,
+        }
+      }
+    />
+    <View>
+      <RCTImageView
+        internal_analyticTag={null}
+        resizeMode="contain"
+        source={
+          Array [
+            Object {
+              "height": undefined,
+              "uri": undefined,
+              "width": undefined,
+            },
+          ]
+        }
+        style={
+          Object {
+            "height": 25,
+            "overflow": "hidden",
+            "resizeMode": "contain",
+            "width": 25,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

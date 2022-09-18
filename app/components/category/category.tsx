@@ -1,7 +1,7 @@
 import * as React from "react"
 import { StyleProp, TextStyle, View, ViewStyle } from "react-native"
 import { observer } from "mobx-react-lite"
-import { color, spacing, typography } from "../../theme"
+import { spacing, typography } from "../../theme"
 import { Text } from "../text/text"
 import { Category as CategoryModel } from "../../models"
 import { ProgressBar } from "../progress-bar/progress-bar"
@@ -40,7 +40,7 @@ export interface CategoryProps {
 
 export const Category = observer(function Category(props: CategoryProps) {
   const { style, category } = props
-  const { title, completedTasks, tasks, color } = category
+  const { title, color } = category
   const styles = Object.assign({}, CONTAINER, style)
 
   return (
