@@ -9,6 +9,7 @@ export const CategoryModel = types.model("Category").props({
   title: types.string,
   tasks: types.optional(types.array(TaskModel), []),
   completedTasks: types.optional(types.array(TaskModel), []),
+  color: types.maybe(types.string)
 })
 // eslint-disable-line @typescript-eslint/no-unused-vars
 

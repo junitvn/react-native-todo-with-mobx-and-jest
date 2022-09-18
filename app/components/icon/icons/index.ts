@@ -7,6 +7,8 @@ export const icons = {
   noti: require("./noti.png"),
   save: require("./save.png"),
   left: require("./left.png"),
+  close: require("./close.png"),
+  calendar: require("./calendar.png"),
 }
 
 export type IconTypes = keyof typeof icons
